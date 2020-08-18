@@ -7,11 +7,6 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/include-head.jspf"%>
-<style>
-  #main {
- 	background-image: url("${rootPath}/static/images/img_001.jpg");
-  }
-</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/include-header.jspf"%>
@@ -19,26 +14,28 @@
 	<section id="main">
 		<article id="button">
 			<button>
-				<a href="${rootPath}/blog/input">블로그작성</a>
+				<a href="${rootPath}/blog/list">블로그</a>
 			</button>
 		</article>
 		<article id="blog_body">
-			<c:forEach items="${BLOGS}" var="BLOG">
-			<section class="blog_title" onclick="goView(${BLOG.bl_seq})">
-				<h3>${BLOG.bl_title} - <span>${BLOG.bl_user}</span></h3>
+			<section class="blog_title">
+				<h3>윤동주 - 서시(序詩)</h3>
 			</section>
 			<section class="blog_text">
-				<h5>${BLOG.bl_contents}</h5>
+				<h5>죽는날까지 하늘을 우러러</h5>
+				<h5>한 점 부끄럼이 없기를</h5>
+				<h5>잎새에 이는 바람에도</h5>
+				<h5>나는 괴로워 했다</h5>
+				<h5>별을 노래하는 마음으로</h5>
+				<h5>모든 죽어가는 것을 사랑해야지</h5>
+				<h5>그리고 나에게 주어진 길을</h5>
+				<h5>걸어야 겠다</h5>
+				<h5>오늘 밤에도 별이 바람에 스치운다.</h5>
+
 			</section>
-			</c:forEach>
 		</article>
 	</section>
 	<%@ include file="/WEB-INF/views/include/include-footer.jspf"%>
-	<script>
-		function goView(seq) {
-			// 현재 보고있는 화면을 화면에서 href="주소"로 화면을 전환하라
-			document.location.href="${rootPath}/blog/view?seq=" + seq		
-		}
-	</script>
+
 </body>
 </html>

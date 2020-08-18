@@ -8,6 +8,10 @@
 <head>
 <%@ include file="/WEB-INF/views/include/include-head.jspf"%>
 <style>
+
+
+
+
 	menu {
 	width:80%;
 	padding:10px 0;
@@ -40,6 +44,31 @@
 		color:blue;
 	} 
 </style>
+<script>
+$(function(){
+	
+	
+	
+	// 선택자
+	// $(this): 이벤트핸들러에서 사용하는 시스템객체
+	// $("tag") :  tag 선택자
+	// $("#id") :  id 선택자
+	// $(".class") : class 선택자, 같은 class 가 지정된 모든 tag
+	$("#delete").click(function() {
+		if(confirm("정말 삭제할까요?")){
+			document.location.href = "${rootPath}/blog/delete?seq=${BLOG.bl_seq}"
+		}
+	})
+	$("#update").click(function() {
+		document.location.href = "${rootPath}/blog/update?seq=${BLOG.bl_seq}"
+	})
+	
+	$("#dumy").click(function() {
+		alert("실제로 존재하지 않은 id에 event를 설정하여도 코드는 오류가 나지 않는다!!!")
+	})
+	
+})
+</script>
 
 
 </head>
@@ -61,20 +90,12 @@
 		<menu>
 			<a href="${rootPath}/">처음으로</a>
 			<a href="${rootPath}/blog/list">리스트</a>
-			<a href="${rootPath}/blog/update?seq=${BLOG.bl_seq}">수정</a>
-			<a href="javascript:void(0)" onclick="goDelete()">삭제</a>
+			<a href="javascript:void(0)" id="update">수정</a>
+			<a href="javascript:void(0)" id="delete">삭제</a>
 		</menu>
 	</section>
 	<%@ include file="/WEB-INF/views/include/include-footer.jspf"%>
-	<script>
-	function goDelete() {
-		if(confirm("정말 삭제할까요???")) {
-			document.location.href
-			="${rootPath}/blog/delete?seq=${BLOG.bl_seq}"
-		}
-		
-	}
-	</script>
+	
 
 </body>
 </html>
