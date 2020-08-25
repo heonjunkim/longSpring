@@ -5,9 +5,12 @@
   
  <mapper namespace="com.biz.shop.persistence.DeptDao">
  	<select id="selectAll" resultType="DepVO">
- 		SELECT * FROM tbl_dept
+ 		SELECT * FROM tbl_dept WHERE d_not_use IS NULL
  	</select>
- 	<select id="findById">
+ 	
+ 	<select id="findByID" resultType="DepVO">
+ 	
+ 		SELECT * FROM tbl_dept WHERE d_code = #{id}
  	</select>
  	
  	<insert id="insert">
@@ -19,7 +22,6 @@
 		D_ADDRESS,
 		D_MANAGER,
 		D_MIN_TEL
- 	
  	) VALUES (
  		#{d_code},
 		#{d_name},

@@ -35,10 +35,10 @@ input {
 	 원칙상 tag#id 형식으로 만들어야 하지만
 	 #id 만 사용하여도 문제 없다. 
  */
-input#p_code {
+input.m_code {
 	width: 50%;
 }
-button#p_code_gen {
+button.m_code_gen {
 	display: inline-block;
 	padding: 8px 16px;
 	background-color: orange;
@@ -54,7 +54,7 @@ CSS3에서 본격적으로 지원하는 selector들로 기본 tag, class, id등�
 확장하여 js로 구현하던 다양한 기능을 CSS3만으로 구현할 수 있도록 만드는 
 확장 selector들이다.
 */
-buttoN#p_code_gen:hover {
+buttoN#p_code_gen:hover,button#d_code_gen:hover {
 	background-color: #ddd;
 	color: black;
 	

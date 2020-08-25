@@ -11,7 +11,7 @@ import com.biz.shop.service.DeptService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Service(value="depServiceV1")
 public class DeptServiceImplV1 implements DeptService {
 	
@@ -25,20 +25,14 @@ public class DeptServiceImplV1 implements DeptService {
 
 	@Override
 	public DeptVO findByID(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return depDao.findByID(id);
+
 	}
 
 	@Override
 	public int insert(DeptVO vo) {
-		int ret = depDao.insert(vo);
-		
-		if(ret > 0) {
-			log.debug("INSERT 성공 {} 개 데이터 추가", ret);
-		} else {
-			log.debug("INSERT 실패 {}", ret);
-		}
-		return ret;
+		return depDao.insert(vo);
 	
 	}
 
@@ -54,10 +48,22 @@ public class DeptServiceImplV1 implements DeptService {
 		return 0;
 	}
 
+
 	@Override
-	public List<DeptVO> findByTitle(String title) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getDCode() {
+		
+		String retDCode = "D001";
+		
+		try {
+			String maxCode = depDao.maxDCode(); 
+			String preCode = maxCode.substring(0,1);
+			int dcode = Integer.valueOf(maxCode.substring(1)) + 1;
+			retDCode = String.format("%s%03d", preCode, dcode);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return retDCode;
 	}
 
 }
