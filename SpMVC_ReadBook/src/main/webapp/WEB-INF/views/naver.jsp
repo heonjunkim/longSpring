@@ -50,7 +50,8 @@ section#search-list {
 }
 
 section#serach-list-div {
-	width: 95%; border : 1px solid #777;
+	width: 95%;
+	border: 1px solid #777;
 	background-color: #ccc;
 	border-radius: 5px;
 	margin: 5px;
@@ -82,8 +83,8 @@ img {
 		<c:forEach items="${NAVERS}" var="naver">
 			<div>
 				<h3>${naver.title}</h3>
-				<a href="${naver.link}" target=_new> <c:if test="${naver.image == 'noimage'}">
-						<img src="${rootPath}/resources/images/noimage.png }">
+				<a href="${naver.link}" target=_new> <c:if test="${ naver.image == 'noimage' }">
+						<img src="${rootPath}/resources/images/noimage.png">
 					</c:if> <c:if test="${naver.image != 'noimage' }">
 						<img src="${naver.image}" alt="네이버 이미지">
 					</c:if>
@@ -91,9 +92,6 @@ img {
 				<p>${naver.description}</p>
 			</div>
 		</c:forEach>
-
-
 	</section>
-
 </body>
 </html>
