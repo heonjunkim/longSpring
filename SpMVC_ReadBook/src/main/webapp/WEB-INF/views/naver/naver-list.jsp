@@ -8,65 +8,65 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>나의 홈페이지</title>
 <style>
-body {
-	display: flex;
-	flex-flow: column wrap;
-}
-
-nav#search-nav {
-	width: 100%;
-	background-color: green;
-	color: white;
-}
-
-nav#serach-nav form {
-	display: flex;
-	align-items: center; /* 세로 중앙정렬 */
-}
-
-nav#search-nav form select, nav#search-nav form input {
-	margin: 8px 5px;
-	padding: 5px;
-	border-radius: 5px;
-	border: 1px solid #ddd;
-	outline: none;
-}
-
-nav#search-nav form select {
-	flex: 1;
-	height: 30px;
-}
-
-nav#search-nav form input {
-	flex: 3;
-	height: 20px;
-}
-
-section#search-list {
-	display: flex;
-	flex-flow: row wrap;
-	height: 100%;
-	justify-content: center;
-}
-
-section#serach-list-div {
-	width: 95%;
-	border: 1px solid #777;
-	background-color: #ccc;
-	border-radius: 5px;
-	margin: 5px;
-	padding: 5px;
-	border: 1px solid #777;
-}
-
-section#search-list div p b {
-	color: blue;
-}
-
-img {
-	float: left;
-	margin: 10px;
-}
+	body {
+		display: flex;
+		flex-flow: column wrap;
+	}
+	
+	nav#search-nav {
+		width: 100%;
+		background-color: green;
+		color: white;
+	}
+	
+	nav#serach-nav form {
+		display: flex;
+		align-items: center; /* 세로 중앙정렬 */
+	}
+	
+	nav#search-nav form select, nav#search-nav form input {
+		margin: 8px 5px;
+		padding: 5px;
+		border-radius: 5px;
+		border: 1px solid #ddd;
+		outline: none;
+	}
+	
+	nav#search-nav form select {
+		flex: 1;
+		height: 30px;
+	}
+	
+	nav#search-nav form input {
+		flex: 3;
+		height: 20px;
+	}
+	
+	section#search-list {
+		display: flex;
+		flex-flow: row wrap;
+		height: 100%;
+		justify-content: center;
+	}
+	
+	section#serach-list-div {
+		width: 95%;
+		border: 1px solid #777;
+		background-color: #ccc;
+		border-radius: 5px;
+		margin: 5px;
+		padding: 5px;
+		border: 1px solid #777;
+	}
+	
+	section#search-list div p b {
+		color: blue;
+	}
+	
+	img {
+		float: left;
+		margin: 10px;
+	}
 </style>
 </head>
 <body>
@@ -90,6 +90,7 @@ img {
 					</c:if>
 				</a>
 				<p>${naver.description}</p>
+				<p>ISBN : ${naver.isbn}</p>
 			</div>
 		</c:forEach>
 	</section>
