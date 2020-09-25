@@ -12,11 +12,23 @@ $(function () {
     }
     console.log(headerHeight, windowTop);
   });
+
+  //$("li#menu-home").click(function(){});
+  //$("li#menu-book").click(function(){});
+  //$("li#menu-read").click(function(){});
+
   // nav의 li tag를 클릭했을때
   $("#main-nav li").click(function () {
     let menu_text = $(this).text();
+    let menu_id = $(this).attr("id");
     if (menu_text === "도서정보") {
       document.location.href = `${rootPath}/books`;
+    } else if (menu_id === "menu-home") {
+      document.location.href = `${rootPath}/`;
+    } else if (menu_id === "menu-read-book") {
+      document.location.href = `${rootPath}/read/`;
+    } else if (menu_id === "menu-join") {
+      document.location.href = `${rootPath}/member/join`;
     }
   });
 });
