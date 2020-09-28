@@ -21,6 +21,7 @@ $(function () {
   $("#main-nav li").click(function () {
     let menu_text = $(this).text();
     let menu_id = $(this).attr("id");
+
     if (menu_text === "도서정보") {
       document.location.href = `${rootPath}/books`;
     } else if (menu_id === "menu-home") {
@@ -29,6 +30,8 @@ $(function () {
       document.location.href = `${rootPath}/read/`;
     } else if (menu_id === "menu-join") {
       document.location.href = `${rootPath}/member/join`;
+    } else if (menu_id === "menu-logout") {
+      document.location.href = `${rootPath}/member/logout`;
     }
   });
 });

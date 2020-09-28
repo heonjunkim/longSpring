@@ -3,12 +3,14 @@ package com.biz.book.service.auth;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.biz.book.mapper.AuthorityDao;
 import com.biz.book.mapper.UserDao;
 import com.biz.book.model.UserDetailsVO;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /*
  * Spring Security 프로젝트에서 
@@ -23,6 +25,8 @@ import lombok.RequiredArgsConstructor;
  */
 
 @RequiredArgsConstructor
+@Service("userDetailServiceV1")
+@Slf4j
 public class UserDetailServiceImplV1 implements UserDetailsService {
 	
 	/*
@@ -54,11 +58,25 @@ public class UserDetailServiceImplV1 implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
+
 		UserDetailsVO userDetail = userDao.findById(username);
+		
+		// 테스트를 위한 임시 사용자 정보 생성
+		/*
+			userDetail = UserDetailsVO.builder()
+					.username(username)
+					.password("12341234")
+					.enabled(true)
+					.build();
+			*/		
 		if(userDetail == null) {
+			
+			// 강제로 일부러 UsernameNotFoundException을 발생시킨다.
 			throw new UsernameNotFoundException(username + "정보를 찾을 수 없음"); 
 		}
+		log.debug("USER : " +userDetail.toString());
+		
+		userDetail.setEnabled(true);
 		
 		return userDetail;
 		
