@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" href="${rootPath}/static/css/login.css?ver=2020-09-28" />
+<link rel="stylesheet" href="${rootPath}/static/css/login.css?ver=2020-10-12" />
 <style>
 	login_body h4 {
 		width:80px;
@@ -25,7 +25,7 @@ $(function(){
 
 </script>
 <body id="login_body">
-	<form:form modelAttribute="LOGIN_VO">
+	<form:form modelAttribute="memberVO" action="${rootPath}/login">
 		<h2>로그인</h2>
 		<h4 id="msg">${MSG}</h4>
 		<form:input path="m_userid" placeholder="사용자 ID" />
