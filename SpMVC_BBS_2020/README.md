@@ -69,3 +69,4 @@ mybatis-config.xml 파일을 작성하지 않는다.
 	</bean>			
 </property>
 
+webapp > /

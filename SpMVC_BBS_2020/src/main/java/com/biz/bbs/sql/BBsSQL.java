@@ -40,4 +40,9 @@ public class BBsSQL {
 		sql.WHERE("b_seq = #{b_seq}");
 		return sql.toString();
 	}
+	
+	public String bbs_delete() {
+		SQL sql = new SQL();
+		return sql.toString();
+	}
 }
