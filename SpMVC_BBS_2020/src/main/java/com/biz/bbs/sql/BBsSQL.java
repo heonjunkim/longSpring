@@ -41,8 +41,5 @@ public class BBsSQL {
 		return sql.toString();
 	}
 	
-	public String bbs_delete() {
-		SQL sql = new SQL();
-		return sql.toString();
-	}
+	
 }

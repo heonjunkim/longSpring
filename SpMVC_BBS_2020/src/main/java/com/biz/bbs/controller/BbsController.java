@@ -27,9 +27,7 @@ public class BbsController {
 	@Qualifier("bbsServiceV1")
 	private BBsService bbsService;
 	
-	@Autowired
-	@Qualifier("fileServiceV4")
-	private FileService fileService;
+
 	
 	/*
 	 * return 문에 bbs/list 문자열이 있으면 
@@ -65,10 +63,8 @@ public class BbsController {
 	public String write(BBsVO bbsVO, @RequestParam("file") MultipartFile file) {
 		
 		log.debug("업로드한 파일 이름" + file.getOriginalFilename());
-		String fileName = fileService.fileUp(file);
-		bbsVO.setB_file(fileName);
-		bbsService.insert(bbsVO);
-		
+
+		bbsService.insert(bbsVO, file);		
 		return "redirect:/bbs/list";
 	}
 
@@ -79,5 +75,22 @@ public class BbsController {
 		model.addAttribute("BBSVO",bbsVO);
 		
 		return "bbs/detail";
+	}	
+	
+	
+	@RequestMapping(value="/{seq}/{url}",method=RequestMethod.GET)
+	public String update(@PathVariable("seq") String seq,
+						 @PathVariable("url") String url, Model model) {
+		
+		long long_seq = Long.valueOf(seq);
+		String ret_url = "redirect:/bbs/list";
+		
+		if(url.equalsIgnoreCase("DELETE")) {
+			bbsService.delete(long_seq);
+		} else if(url.equalsIgnoreCase("UPDATE")) {
+			model.addAttribute("BBSVO",bbsService.findBySeq(long_seq));
+			ret_url = "/bbs/write";
+		}		
+		return ret_url;
 	}	
 }
