@@ -74,7 +74,7 @@ public class BbsController {
 		BBsVO bbsVO = bbsService.findBySeq(long_seq);
 		model.addAttribute("BBSVO",bbsVO);
 		
-		return "bbs/detail";
+		return "/bbs/detail";
 	}	
 	
 	
